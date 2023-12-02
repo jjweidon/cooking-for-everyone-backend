@@ -1,4 +1,4 @@
-package cookingforeveryone.domain.user.entity;
+package cookingforeveryone.domain;
 
 import jakarta.transaction.Transactional;
 import jakarta.persistence.*;
@@ -12,13 +12,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 @Transactional
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class UserIngredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @Column(name="user_ingredient_id")
     private Long id;
-    private String password;
-    @Column(name="user_name")
-    private String name;
-    private String email;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ingredient_id")
+    private Ingredient ingredient;
+    private int quantity;
+    private boolean is_favorite;
 }

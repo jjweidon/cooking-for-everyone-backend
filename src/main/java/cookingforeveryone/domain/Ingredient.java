@@ -1,6 +1,5 @@
-package cookingforeveryone.domain.recipe.entity;
+package cookingforeveryone.domain;
 
-import cookingforeveryone.domain.user.entity.User;
 import jakarta.transaction.Transactional;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,16 +12,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 @Transactional
 @EntityListeners(AuditingEntityListener.class)
-public class Recipe {
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="recipe_id")
+    @Column(name="ingredient_id")
     private Long id;
     @Column(name="ingredient_name")
     private String name;
-    @Column(columnDefinition = "TEXT")
-    private String description;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;
 }
