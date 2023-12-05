@@ -1,4 +1,7 @@
 package cookingforeveryone.repository;
 
-public class IngredientRepository {
+import cookingforeveryone.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IngredientRepository extends JpaRepository<User, Long> {
 }
