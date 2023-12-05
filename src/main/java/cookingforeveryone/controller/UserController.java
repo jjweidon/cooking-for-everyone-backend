@@ -20,6 +20,7 @@ public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;
 
+    // 로그인
     @PostMapping("/api/login")
     @ResponseBody
     public void login(@RequestBody RequestDto loginRequest) {
@@ -29,7 +30,6 @@ public class UserController {
         // UserRepository를 통해 사용자 정보를 가져옴
         Optional<User> storedUser = userRepository.findById(userId);
     }
-
     // 사용자 생성
     @PostMapping("/api/user")
     public UserDto createUserRequest(HttpServletRequest request, HttpServletResponse response,
@@ -38,7 +38,6 @@ public class UserController {
         response.setStatus(201);
         return userDto;
     }
-
     // 사용자 삭제
     @DeleteMapping("/api/user")
     public void deleteUser(@RequestParam(name="trashcanId") Long id, HttpServletRequest request, HttpServletResponse response) {
