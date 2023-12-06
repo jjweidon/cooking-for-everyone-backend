@@ -14,7 +14,7 @@ import java.util.List;
 public class RecipeController {
 
     // 맞춤형 레시피 추천
-    @GetMapping("/recipes")
+    @GetMapping("/recipe")
     public List<RecipeDto> getRecipes() {
         // 맞춤형 레시피 추천 로직을 수행합니다.
         // 입력된 식재료를 기반으로 데이터베이스에서 레시피를 조회하는 등의 작업을 수행합니다.
