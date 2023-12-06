@@ -32,7 +32,7 @@ public class UserController {
     }
     // 사용자 생성
     @PostMapping("/api/user")
-    public UserDto createUserRequest(HttpServletRequest request, HttpServletResponse response,
+    public UserDto createUser(HttpServletRequest request, HttpServletResponse response,
                               @RequestBody UserDto form) {
         UserDto userDto = userService.create(form);
         response.setStatus(201);
